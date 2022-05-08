@@ -1,0 +1,208 @@
+/* BACKGROUND */
+.footer_background {
+    background: #001933;
+    color: #fff;
+    padding: 10px 50px;
+}
+
+.footer_logo {
+    width: 200px;
+    color: #fff !important;
+}
+
+.footer_grid {
+    padding-top: 4rem;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "GOL GOL ABU ABU POL POL GIT GIT";
+    gap: 4rem;
+}
+
+.goalabs_summary {
+    grid-area: GOL;
+}
+
+.policy {
+    grid-area: POL;
+}
+
+.get_in_touch {
+    grid-area: GIT;
+}
+
+.footer h3 {
+    font-size: 18px !important;
+    font-weight: 600;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer p {
+    font-size: 16px !important;
+}
+
+.about_us,
+.policy,
+.get_in_touch {
+    display: flex;
+    flex-direction: column;
+}
+
+.about_us a,
+.policy a,
+.get_in_touch a {
+    font-size: 16px;
+    margin-top: 0.75rem;
+}
+
+.about_us a:hover,
+.policy a:hover,
+.get_in_touch a:hover {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.about_us a:active,
+.policy a:active,
+.get_in_touch a:active {
+    color: #eee;
+    text-decoration: none;
+}
+
+.goalabs_summary h3 {
+    margin: 0 0 1rem 0;
+}
+
+.goalabs_summary p {
+    margin: 0.75rem 0;
+    line-height: 1.5rem;
+    font-size: 16px !important;
+    width: 100%;
+}
+
+/* QUESTION */
+.question_div {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.question_img {
+    margin-right: 5px;
+}
+
+.question_div:hover {
+    opacity: 0.8;
+}
+
+.question_div:active {
+    opacity: 0.6;
+}
+
+.question_a {
+    font-size: 16px;
+    padding-bottom: 3px;
+}
+
+/* FOLLOW US */
+.follow {
+    padding: 2rem 0;
+}
+
+.follow_icons {
+    margin-top: 0.75rem;
+}
+
+.follow_icons img {
+    margin-right: 1.5rem;
+    height: 25px;
+}
+
+.follow_icons img:hover {
+    opacity: 0.6;
+}
+
+.follow_icons img:active {
+    opacity: 0.8;
+}
+
+.map_pin {
+    width: 30px;
+}
+
+.get_in_touch img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 425px) {
+    .footer_grid {
+        padding-top: 2rem;
+        gap: 0.5rem;
+        grid-template-areas:
+            "GOL GOL"
+            "GOL GOL"
+            "ABU POL"
+            "GIT GIT";
+    }
+
+    .footer_grid p,
+    .footer_grid a {
+        font-size: 14px !important;
+    }
+
+    .goalabs_summary p {
+        line-height: 25px !important;
+        width: 95%;
+    }
+
+    .policy,
+    .about_us,
+    .get_in_touch {
+        padding-bottom: 1rem;
+    }
+
+    .footer_logo img {
+        width: 120px;
+    }
+
+    .follow {
+        padding: 1rem 0 2rem;
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .footer_grid {
+        padding-top: 2rem;
+        gap: 1rem;
+        grid-template-areas:
+            "GOL GOL GOL"
+            "GOL GOL GOL"
+            "ABU POL GIT";
+    }
+
+    .footer_grid p,
+    .footer_grid a {
+        font-size: 16px !important;
+    }
+
+    .goalabs_summary p {
+        width: 100%;
+    }
+
+    .policy,
+    .about_us,
+    .get_in_touch {
+        padding-bottom: 0;
+    }
+
+    .footer_logo img {
+        width: 120px;
+    }
+
+    .follow {
+        padding: 1rem 0 2rem;
+    }
+}
