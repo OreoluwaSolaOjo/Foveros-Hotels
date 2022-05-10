@@ -3,12 +3,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -21,16 +18,19 @@ const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {
     // state used for redirecting once password is reset
     const [requestSent, setRequestSent] = React.useState(false)
     const [formData, setFormData] = React.useState({
-        new_password,
-        re_new_password
+        new_password: '',
+        re_new_password: ''
     });
     const { new_password, re_new_password } = formData;
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
     const navigate = useNavigate()
+    const { uid, token } = useParams();
     const onSubmit = e => {
         e.preventDefault();
-        const uid = match.params.uid;
-        const token = match.params.token
+
+        // const uid = match.params.uid;
+        // const token = match.params.token
+
         reset_password_confirm(uid, token, new_password, re_new_password)
         setRequestSent(true)
         console.log({

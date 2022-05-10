@@ -28,7 +28,6 @@ SECRET_KEY = 'django-insecure-w$q!2@*pc*flzt(2r8w=f^ad=a$%h+9o02m3%j6is6arpw&o2s
 DEBUG = True
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -117,15 +116,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Email
 # email : oreoluwasolaojo@gmail.com
-# apppassword: 'tfwhnbfytmxlezcj'
+# apppassword: 'fxnqaxdpggmihedh'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'oreoluwasolaojo@gmail.com'
-EMAIL_HOST_PASSWORD = 'tfwhnbfytmxlezcj'
+EMAIL_HOST_PASSWORD = 'fxnqaxdpggmihedh'
+EMAIL_USE_TLS = True
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 587
@@ -148,7 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -197,6 +196,7 @@ DJOSER = {
     'SERIALIZERS': {
         'user_create': 'accounts.serializers.UserCreateSerializer',
         'user': 'accounts.serializers.UserCreateSerializer',
+        'current_user': 'accounts.serializers.UserCreateSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     },
 }
