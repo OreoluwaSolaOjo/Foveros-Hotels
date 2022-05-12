@@ -26,9 +26,14 @@ const useStyles = makeStyles((theme) => ({
 
     },
     button: {
-
+        display: "flex",
         '&:hover': {
             color: "#007FFF",
+        },
+        [theme.breakpoints.down("sm")]: {
+            // display: (props) => (props.open ? "flex" : "none"),
+            display: "none !important",
+            color: "primary.dark",
         },
     },
     menuicon: {
@@ -37,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
             // display: (props) => (props.open ? "flex" : "none"),
             display: "flex",
             color: "#949997",
+            height: '50px',
+            width: '50px',
         },
     }
 }));
@@ -63,15 +70,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" className={classes.appbar}>
                 <Toolbar sx={toolbarfix} className={classes.toolbar}>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
 
-                    >
-                        <MenuIcon className={classes.menuicon} />
-                    </IconButton>
                     <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                         Foveros Hotels
                     </Typography>
@@ -79,7 +78,15 @@ const Navbar = ({ logout, isAuthenticated }) => {
                     <Button color="secondary" className={classes.button}>Contact Us</Button>
                     <Button color="secondary" className={classes.button}>About Us</Button>
                     {isAuthenticated ? authLinks() : guestLinks()}
+                    <IconButton
+                        size="large"
+                        edge="end"
+                        aria-label="menu"
+                        sx={{ mr: 1 }}
 
+                    >
+                        <MenuIcon sx={{ height: 35, width: 35, }} className={classes.menuicon} />
+                    </IconButton>
                 </Toolbar>
             </AppBar>
         </Box>
