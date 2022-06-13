@@ -114,9 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Email
-# email : oreoluwasolaojo@gmail.com
-# apppassword: 'fxnqaxdpggmihedh'
+
 
 
 
