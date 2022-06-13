@@ -9,7 +9,12 @@ import ResetPassword from "./components/Authentication/ResetPassword";
 import ResetPasswordConfirm from "./components/Authentication/ResetPasswordConfirm";
 import Activate from "./components/Authentication/Activate";
 import Layout from "./hocs/Layout";
-
+import Contact from "./components/ContactUs/Contact";
+import About from "./components/AboutUs/About";
+import BookingPage from "./components/BookingPage/BookingPage";
+import BookingInfo from "./components/BookingPage/OldBookingInfo";
+import BookingDecisionPage from "./components/BookingPage/BookingDecisionPage";
+import ReactPaginate from 'react-paginate';
 
 const App = () => {
 
@@ -19,18 +24,25 @@ const App = () => {
     // </div>
 
     <Router>
-      <div >
+
+      <>
+
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<SignUp />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
             <Route path="/reset_password" element={<ResetPassword />} />
             <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
             <Route path="/activate/:uid/:token" element={<Activate />} />
+            <Route path="/bookingpage/*" element={<BookingPage />} />
+            <Route path="/bookingpage/bookinginfo/bookingdecisionpage" element={<BookingDecisionPage />} />
+            <Route path="/bookinginfo" element={<BookingInfo />} />
           </Routes>
         </Layout>
-      </div>
+      </>
     </Router>
 
   );

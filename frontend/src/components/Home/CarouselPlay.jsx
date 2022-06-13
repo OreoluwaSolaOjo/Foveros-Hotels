@@ -1,5 +1,5 @@
-import Carousel from 'react-bootstrap/Carousel'
-
+import Carousel from 'react-bootstrap/Carousel';
+import Typography from '@mui/material/Typography';
 const CarouselPlay = () => {
     return (
         <Carousel fade>
@@ -10,8 +10,11 @@ const CarouselPlay = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <Typography variant="h5" component="h5">
+                        First slide label</Typography>
+                    <Typography variant="h6" component="h6">
+                        Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    </Typography>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -22,8 +25,11 @@ const CarouselPlay = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <Typography variant="h5" component="h5">
+                        Second slide label</Typography>
+                    <Typography variant="h6" component="h6">
+                        Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    </Typography>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -34,8 +40,12 @@ const CarouselPlay = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <Typography variant="h5" component="h5">
+                        Third slide label</Typography>
+                    <Typography variant="h6" component="h6">
+                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    </Typography>
+
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

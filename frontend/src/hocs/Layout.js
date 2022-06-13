@@ -10,11 +10,11 @@ const Layout = (props) => {
         props.load_user();
     }, [])
     return (
-        <div>
+        <>
             <Navbar />
             {props.children}
             <Footer />
-        </div>
+        </>
     );
 }
 

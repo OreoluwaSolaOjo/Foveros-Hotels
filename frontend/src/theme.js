@@ -11,6 +11,7 @@ const rawTheme = createTheme({
     },
     secondary: {
       main: '#FFFFFF',
+      dark: '#000000'
     },
     warning: {
       main: '#ffc071',
@@ -110,6 +111,10 @@ const theme = {
     body2: {
       ...rawTheme.typography.body1,
       fontSize: 14,
+    },
+    body3: {
+      ...rawTheme.typography.body1,
+      fontSize: 10,
     },
     button: {
       ...rawTheme.typography.button,

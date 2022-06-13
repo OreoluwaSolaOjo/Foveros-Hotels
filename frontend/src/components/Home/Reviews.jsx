@@ -248,7 +248,8 @@ const RatingsSlider = () => {
 
                                             {/* you can adjust custom styles in a box which is just like a div by giving it a prop of sx */}
                                             <Box
-                                                sx={{ display: "flex", justifyContent: "flex-start" }}>
+                                                sx={{ display: "flex", justifyContent: "flex-start" }}
+                                            >
 
                                                 <Box
                                                     sx={{
@@ -256,7 +257,8 @@ const RatingsSlider = () => {
                                                         alignItems: "center",
                                                         marginBottom: "10px",
                                                         marginRight: "5%"
-                                                    }}>
+                                                    }}
+                                                >
                                                     <Avatar alt="Remy Sharp"
                                                         sx={{ width: 56, height: 56 }}
                                                         src={newData.img} />

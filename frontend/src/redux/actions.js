@@ -8,6 +8,7 @@ import axios from "axios"
 
 
 export const checkAuthenticated = () => async dispatch => {
+    // if access token exists in localStorage
     if (localStorage.getItem('access')) {
         const config = {
             headers: {
@@ -15,8 +16,10 @@ export const checkAuthenticated = () => async dispatch => {
                 'Accept': 'application/json'
             }
         };
+        // set token to access token
         const body = JSON.stringify({ token: localStorage.getItem('access') });
         try {
+            // post to required endpoint from djoser documentation
             const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/jwt/verify/`, body, config);
             if (res.data.code !== "token_not_valid") {
                 dispatch({
@@ -41,6 +44,7 @@ export const checkAuthenticated = () => async dispatch => {
 
 export const load_user = () => async dispatch => {
     if (localStorage.getItem('access')) {
+        // add access token in headers
         const config = {
             headers: {
                 'Content-Type': 'application/json',
@@ -175,3 +179,24 @@ export const logout = () => dispatch => {
         type: LOGOUT
     })
 }
+
+// export const bookingsignup = (firstName, lastName, email, phoneNumber, plan, datepicked) => async dispatch => {
+//     const config = {
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     };
+//     const body = JSON.stringify({ firstName, lastName, email, phoneNumber, plan, datepicked });
+//     try {
+//         // post request taking the config and body and posting to the signupbooking endpoint
+//         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/`, body, config);
+//         dispatch({
+//             type: BOOKINGSIGNUP_SUCCESS,
+//             payload: res.data
+//         })
+//     } catch (err) {
+//         dispatch({
+//             type: BOOKINGSIGNUP_FAIL,
+//         })
+//     }
+// }

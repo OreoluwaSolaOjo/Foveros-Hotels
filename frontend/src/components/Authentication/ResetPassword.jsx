@@ -18,20 +18,6 @@ import { reset_password } from '../../redux/actions';
 
 
 const ResetPassword = ({ reset_password }) => {
-
-    // const { register, handleSubmit, formState: { errors } } = useForm();
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const data = new FormData(event.currentTarget);
-    //     login({
-    //         email: data.get('email'),
-    //         password: data.get('password'),
-    //     })
-    //     console.log({
-    //         email: data.get('email'),
-    //         password: data.get('password'),
-    //     });
-    // };
     // state used for redirecting once password is reset
     const [requestSent, setRequestSent] = React.useState(false)
     const [formData, setFormData] = React.useState({
