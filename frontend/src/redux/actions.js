@@ -2,7 +2,7 @@ import {
     USER_LOADED_FAIL, USER_LOADED_SUCCESS, LOGIN_FAIL, LOGIN_SUCCESS, AUTHENTICATED_SUCCESS,
     AUTHENTICATED_FAIL, LOGOUT, PASSWORD_RESET_SUCCESS,
     PASSWORD_RESET_FAIL, PASSWORD_RESET_CONFIRM_FAIL, PASSWORD_RESET_CONFIRM_SUCCESS,
-    SIGNUP_SUCCESS, SIGNUP_FAIL, ACTIVATION_SUCCESS, ACTIVATION_FAIL
+    SIGNUP_SUCCESS, SIGNUP_FAIL, ACTIVATION_SUCCESS, ACTIVATION_FAIL, ROOM_LOADED_SUCCESS, ROOM_LOADED_FAIL
 } from './actionTypes';
 import axios from "axios"
 
@@ -180,23 +180,25 @@ export const logout = () => dispatch => {
     })
 }
 
-// export const bookingsignup = (firstName, lastName, email, phoneNumber, plan, datepicked) => async dispatch => {
-//     const config = {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     };
-//     const body = JSON.stringify({ firstName, lastName, email, phoneNumber, plan, datepicked });
-//     try {
-//         // post request taking the config and body and posting to the signupbooking endpoint
-//         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/`, body, config);
-//         dispatch({
-//             type: BOOKINGSIGNUP_SUCCESS,
-//             payload: res.data
-//         })
-//     } catch (err) {
-//         dispatch({
-//             type: BOOKINGSIGNUP_FAIL,
-//         })
-//     }
-// }
+
+
+// Room loading
+export const room_load = () => async dispatch => {
+
+    try {
+        const rooms = await axios.get(`${process.env.REACT_APP_API_URL}/bookinglogic/get_room_list/`)
+
+        dispatch({
+            type: ROOM_LOADED_SUCCESS,
+            payload: rooms.data
+        })
+    } catch (err) {
+        dispatch({
+            type: ROOM_LOADED_FAIL,
+        })
+    }
+}
+
+
+
+

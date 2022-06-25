@@ -1,12 +1,14 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import JsonData from '../../MOCK_DATA.json';
 import ReactPaginate from 'react-paginate';
 import { border, margin } from '@mui/system';
+import { connect } from 'react-redux';
+import { room_load } from '../../redux/actions';
 
 const useStyles = makeStyles((theme) => ({
-    mainbox: {
+    cardbox: {
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
@@ -45,16 +47,23 @@ const useStyles = makeStyles((theme) => ({
 
 
 }));
-const Rooms = () => {
+const Rooms = ({ room_load, roomsData }) => {
     // implementing pagination
-    const [users, setUsers] = React.useState(JsonData.slice(0, 50))
-    const classes = useStyles();
-    const [pageNumber, setPageNumber] = React.useState(0)
+    useEffect(() => {
+        room_load();
 
-    const usersPerPage = 10
+    }, []);
+
+
+    console.log("roomsData:", roomsData)
+    const users = roomsData.slice(0, 50)
+    const classes = useStyles();
+    const [pageNumber, setPageNumber] = useState(0)
+    console.log("roomsData:", roomsData)
+    const usersPerPage = 5
     const pagesVisited = pageNumber * usersPerPage
     // logic behind displaying 10 per page
-    const displayUsers = users.slice(pagesVisited, pagesVisited + usersPerPage).map((user) => {
+    const displayUsers = users.slice(pagesVisited, pagesVisited + usersPerPage).map((roomie) => {
         return (
             <Card sx={{ width: 200, marginTop: 5 }}>
                 <CardActionArea>
@@ -66,25 +75,28 @@ const Rooms = () => {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            {user.firstname}
+                            {roomie.title}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            {user.email}, {user.gender}
+                            {roomie.capacity}, {roomie.category_name}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
             </Card>
+
         );
     });
+    console.log(users)
     // page count to determine no of paginated buttons 1-5 in this case
     const pageCount = Math.ceil(users.length / usersPerPage)
     // change page using selected from the library which is the next selected page
     const changePage = ({ selected }) => {
         setPageNumber(selected)
     }
+
     return (
         <>
-            <Box className={classes.mainbox}>
+            <Box className={classes.cardbox}>
                 {/* {users.map((user) => {
                     return (
                         )
@@ -105,5 +117,9 @@ const Rooms = () => {
         </>
     );
 }
-
-export default Rooms;
+const mapStateToProps = state => {
+    return {
+        roomsData: state.roomloadedreducer.rooms
+    }
+}
+export default connect(mapStateToProps, { room_load })(Rooms);

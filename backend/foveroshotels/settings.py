@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'djoser',
     'accounts',
     'corsheaders',
+    'bookinglogic'
 ]
 
 MIDDLEWARE = [
@@ -114,7 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# Email
+# email : oreoluwasolaojo@gmail.com
+# apppassword: 'fxnqaxdpggmihedh'
 
 
 
@@ -158,12 +161,14 @@ STATICFILES_DIRS = [
 # This is how we know that the default auth system is JWTAuthentication
 REST_FRAMEWORK = {
     # Add new default permission classes
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    # uncomment to use authentication
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+        
+    # ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # ),
 }
 # Configure django-rest-framework-simplejwt to use the Authorization: JWT <access_token> header:
 SIMPLE_JWT = {

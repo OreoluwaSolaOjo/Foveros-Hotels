@@ -4,7 +4,7 @@ import {
     PASSWORD_RESET_FAIL, PASSWORD_RESET_CONFIRM_FAIL, PASSWORD_RESET_CONFIRM_SUCCESS,
     ACTIVATION_SUCCESS, ACTIVATION_FAIL, SIGNUP_FAIL, SIGNUP_SUCCESS
 } from './actionTypes';
-// initial/ default state where user is not loggged in
+// initial/ default state where user is not logged in
 const initialState = {
     access: localStorage.getItem('access'),
     refresh: localStorage.getItem('refresh'),
