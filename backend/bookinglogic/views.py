@@ -11,12 +11,42 @@ from rest_framework import status
 class RoomView(ListAPIView):
     serializer_class = RoomSerializer
     queryset = Room.objects.order_by('-id')
+    # Get a single room
+    
+    def get_queryset(self):
+        rooms = Room.objects.all()
+        return rooms
+    def get(self, request, *args, **kwargs):
+        try:
+            id = request.query_params["id"]
+            if id != None:
+                room = Room.objects.get(id=id)
+                serializer = RoomSerializer(room)
+        except: 
+            rooms = self.get_queryset()
+            serializer = RoomSerializer(rooms, many = True)
+        return Response(serializer.data)   
+    
 
+# class RoomAPIView(APIView):
+#     serializer_class = RoomSerializer
+#     def get_queryset(self):
+#         rooms = Room.objects.all()
+#         return rooms
+#     def get(self, request, *args, **kwargs):
+#         id = request.query_params["id"]
+#         if id != None:
+#             room = Room.objects.get(id=id)
+#             serializer = RoomSerializer(room)
+#         else: 
+#             rooms = self.get_queryset()
+#             serializer = RoomSerializer(rooms, many = True)
+#         return Response(serializer.data)
 
-class RoomDetailView(RetrieveAPIView):
-    serializer_class = RoomSerializer
-    queryset = Room.objects.all()
-    lookup_field = 'room_slug'
+# class RoomDetailView(RetrieveAPIView):
+#     serializer_class = RoomSerializer
+#     queryset = Room.objects.all()
+#     lookup_field = 'room_slug'
 
 
 class BookingCreateApiView(CreateAPIView):

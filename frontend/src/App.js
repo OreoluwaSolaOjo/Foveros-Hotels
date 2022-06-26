@@ -15,6 +15,7 @@ import BookingPage from "./components/BookingPage/BookingPage";
 import BookingInfo from "./components/BookingPage/OldBookingInfo";
 import BookingDecisionPage from "./components/BookingPage/BookingDecisionPage";
 import ReactPaginate from 'react-paginate';
+import BookingPageCardDetail from "./components/BookingPage/BookingPageCardDetail";
 
 const App = () => {
 
@@ -37,7 +38,8 @@ const App = () => {
             <Route path="/reset_password" element={<ResetPassword />} />
             <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
             <Route path="/activate/:uid/:token" element={<Activate />} />
-            <Route path="/bookingpage/*" element={<BookingPage />} />
+            <Route path="/bookingpage" element={<BookingPage />} />
+            <Route path="/bookingpage/:id" element={<BookingPageCardDetail />} />
             <Route path="/bookingpage/bookinginfo/bookingdecisionpage" element={<BookingDecisionPage />} />
             <Route path="/bookinginfo" element={<BookingInfo />} />
           </Routes>

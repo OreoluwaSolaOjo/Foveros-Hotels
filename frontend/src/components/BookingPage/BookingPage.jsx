@@ -7,6 +7,7 @@ import Rooms from './Rooms';
 import { connect } from 'react-redux';
 import { room_load } from '../../redux/actions';
 import ReactPaginate from 'react-paginate';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -238,23 +239,25 @@ const BookingPage = ({ room_load, roomsData, showAvailable }) => {
     // logic behind displaying 10 per page
     const displayUsers = users.slice(pagesVisited, pagesVisited + usersPerPage).map((roomie) => {
         return (
-            <Card sx={{ width: 200, marginTop: 5 }}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="100"
-                        image="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="malidate van"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {roomie.title},
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            {roomie.capacity}, {roomie.category_name}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
+            <Card key={roomie.id} sx={{ width: 200, marginTop: 5 }}>
+                <Link>
+                    <CardActionArea>
+                        <CardMedia
+                            component="img"
+                            height="100"
+                            image="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="malidate van"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                {roomie.title},
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {roomie.capacity}, {roomie.category_name}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Link>
             </Card>
 
         );
