@@ -98,7 +98,7 @@ const TheButton = styled(Button)({
     },
 });
 
-const BookingPage = ({ room_load, roomsData, showAvailable }) => {
+const BookingPage = ({ room_load, roomsData }) => {
 
     React.useEffect(() => {
         room_load();
@@ -172,41 +172,8 @@ const BookingPage = ({ room_load, roomsData, showAvailable }) => {
 
             }
 
-            // else if (capacity !== "") {
-            //     return roomList.filter(
-            //         (room) => room.capacity === parseInt(selectedCategory)
-            //     );
-            // }
-            // else if (category_name !== "") {
-            //     return roomList.filter(
-            //         (newroom) => newroom.category_name !== selectedCategory
-            //     );
-            // }
+
         }
-        // if (!selectedCategory && !selectedCheckBox) {
-        //     return roomList;
-        // }
-        // else if (selectedCheckBox) {
-        //     return roomList.filter((roomsss) => roomsss.is_booked === false);
-        // }
-        // else if (capacity !== "") {
-        //     return roomList.filter(
-        //         (room) => room.capacity === parseInt(selectedCategory)
-        //     );
-        // }
-        // else if (category_name !== "") {
-        //     return roomList.filter(
-        //         (room) => room.category_name === selectedCategory
-        //     );
-        // }
-
-
-
-
-
-
-
-        // return roomList.filter((item) => item.category_name === selectedCategory);
 
     }
     //   Using the function call directly will result in multiple repetitive
@@ -240,7 +207,8 @@ const BookingPage = ({ room_load, roomsData, showAvailable }) => {
     const displayUsers = users.slice(pagesVisited, pagesVisited + usersPerPage).map((roomie) => {
         return (
             <Card key={roomie.id} sx={{ width: 200, marginTop: 5 }}>
-                <Link>
+                <Link to={`/bookingpage/${roomie.id}`}>
+
                     <CardActionArea>
                         <CardMedia
                             component="img"

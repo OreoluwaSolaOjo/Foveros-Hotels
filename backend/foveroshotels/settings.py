@@ -142,7 +142,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Default primary key field type
@@ -155,8 +163,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #         BASE_DIR, 'frontend/foveroshotels/foveroshotels/build/static'),
 # ]
 
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, '/build/static')
+# ]
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static')
+    os.path.join(BASE_DIR, 'static')
 ]
 # This is how we know that the default auth system is JWTAuthentication
 REST_FRAMEWORK = {
@@ -198,5 +209,5 @@ DJOSER = {
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     },
 }
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 AUTH_USER_MODEL = 'accounts.UserAccount'

@@ -2,7 +2,7 @@ import {
     USER_LOADED_FAIL, USER_LOADED_SUCCESS, LOGIN_FAIL, LOGIN_SUCCESS, AUTHENTICATED_SUCCESS,
     AUTHENTICATED_FAIL, LOGOUT, PASSWORD_RESET_SUCCESS,
     PASSWORD_RESET_FAIL, PASSWORD_RESET_CONFIRM_FAIL, PASSWORD_RESET_CONFIRM_SUCCESS,
-    SIGNUP_SUCCESS, SIGNUP_FAIL, ACTIVATION_SUCCESS, ACTIVATION_FAIL, ROOM_LOADED_SUCCESS, ROOM_LOADED_FAIL
+    SIGNUP_SUCCESS, SIGNUP_FAIL, ACTIVATION_SUCCESS, ACTIVATION_FAIL, ROOM_LOADED_SUCCESS, ROOM_LOADED_FAIL, SINGLE_ROOM_LOADED_SUCCESS, SINGLE_ROOM_LOADED_FAIL
 } from './actionTypes';
 import axios from "axios"
 
@@ -198,6 +198,22 @@ export const room_load = () => async dispatch => {
         })
     }
 }
+
+// export const single_room_load = () => async dispatch => {
+
+//     try {
+//         const rooms = await axios.get(`${process.env.REACT_APP_API_URL}/bookinglogic/get_room_list/?id=${id}`)
+
+//         dispatch({
+//             type: SINGLE_ROOM_LOADED_SUCCESS,
+//             payload: rooms.data
+//         })
+//     } catch (err) {
+//         dispatch({
+//             type: SINGLE_ROOM_LOADED_FAIL,
+//         })
+//     }
+// }
 
 
 
