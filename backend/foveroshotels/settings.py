@@ -115,11 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Email
-# email : oreoluwasolaojo@gmail.com
-# apppassword: 'fxnqaxdpggmihedh'
-
-
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
